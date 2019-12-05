@@ -34,7 +34,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-'''''
-<a href="javascript:;" class="all js-yaticket-button js-metrika-yaticket-button" data-film-id="903831" data-session-id="42686490">10:05</a>
-'''''
