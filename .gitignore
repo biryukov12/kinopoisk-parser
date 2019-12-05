@@ -1,0 +1,5 @@
+.idea
+venv
+package-lock.json
+test.py
+geckodriver.log
