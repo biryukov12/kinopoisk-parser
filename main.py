@@ -8,6 +8,7 @@ def get_html(url):
     return page
 
 
+# parsing: movie title; country, year; link to sessions.
 def get_films(html):
     soup = BeautifulSoup(html.content, 'html.parser')
     title_film = [i.find('a').text for i in soup.find_all('div', class_='title _FILM_')]
@@ -18,6 +19,7 @@ def get_films(html):
     print(*dict_films, sep='\n')
 
 
+# parsing: the cheapest session, time, link to buy.
 def get_price_film(html):
     soup = BeautifulSoup(html.content, 'html.parser')
     price = [i.text for i in soup.find_all('span', class_='schedule-item__price')]
