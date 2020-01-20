@@ -1,4 +1,5 @@
 import requests
+import random
 from bs4 import BeautifulSoup
 from fake_useragent import UserAgent
 
@@ -29,9 +30,18 @@ def get_price_film(html):
     print(*session, sep='\n')
 
 
+# parsing random film from my 'watch later' list
+def get_random_film(html):
+    soup = BeautifulSoup(html.content, 'html.parser')
+    films_name_list = [i.text for i in soup.find_all('a', class_='name')]
+    random_film = random.choice(films_name_list)
+    print(random_film)
+    
+
 def main():
     get_films(get_html('https://www.kinopoisk.ru/afisha/city/1/sort_by/count/#sort'))
     get_price_film(get_html('https://www.kinopoisk.ru/film/1188529/afisha/city/1/day_view'))
+    get_random_film(get_html('https://www.kinopoisk.ru/user/16144925/movies/list/type/3575/'))
 
 
 if __name__ == '__main__':
